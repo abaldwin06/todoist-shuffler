@@ -1,0 +1,58 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    padding-inline-start: 0px;
+}
+
+header,footer {
+    display: flex;
+    text-align: center;
+    height: 15vh;
+    background-color: #85cdcb;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+main {
+    display: flex;
+    min-height: 70vh;
+    text-align: center;
+    margin: 2.5rem;
+    flex-direction: column;
+}
+
+#todaylist {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    align-items: center;
+}
+.task {
+    width: 85%;
+    margin: .5rem;
+    line-height: 1.5rem;
+    background-color: blanchedalmond;
+    border: 3px solid lightblue;
+    list-style: none;
+}
+
+input {
+    text-align: center;
+    padding: 1rem;
+}
+
+form * {
+    padding: 1rem;
+}
+
+span {
+    font-weight: bold;
+}
+
+/*
+dark orange: #e27d60
+light teal: #85cdcb
+light orange: #E8a87c
+purple: c38d9e
+dark teal: 41b3a3
+*/
