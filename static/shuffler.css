@@ -17,38 +17,193 @@ main {
     display: flex;
     min-height: 70vh;
     text-align: center;
-    margin: 2.5rem;
+    margin: 1rem;
     flex-direction: column;
 }
 
-#todaylist {
+/* FORM FOR SHUFFLER PREFERENCES */
+/* ----------------------------- */
+form * {
+    padding: 0.25rem .5rem;
+    margin: 0.25rem .5rem;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* the container for the Label/Project selection fields */
+.selectlists {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* the actual selection field*/
+.selectlists select {
+    height: 20vh;
+}
+
+/* to make labels and selection fields column stacked*/
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+/* due date field and shuffle button*/
+input { 
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Shuffler button */
+input.randomTask {
+    padding: 1rem;
+}
+
+/* SHUFFLE SUMMARY */
+/* ----------------------------- */
+/* to make things bold in the shuffle summary*/
+span {
+    font-weight: bold;
+}
+
+/* SHUFFLER OUTCOME */
+/* ----------------------------- */
+#tasklist {
     display: flex;
     flex-direction: column;
     padding: .5rem;
     align-items: center;
 }
+
 .task {
-    width: 85%;
+    display: flex;
+    min-width: 50%;
+    width: fit-content;
     margin: .5rem;
-    line-height: 1.5rem;
-    background-color: blanchedalmond;
-    border: 3px solid lightblue;
+    line-height: 2rem;
+    background-color: white;
+    border: 5px solid #85cdcb;
     list-style: none;
+    align-items: center;
 }
 
-input {
-    text-align: center;
+.task input {
     padding: 1rem;
+    margin: 1rem;
 }
 
-form * {
-    padding: 1rem;
+.task p {
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
-span {
-    font-weight: bold;
+/* class for the info about a task that displays with task*/
+.factoid {
+    border: grey .5px solid;
+    font-size: smaller;
+    margin: .5rem;
+    padding: .5rem;
+    width: fit-content;
 }
 
+/* Task priority colors */
+.p1 {
+    background-color: #FF6F61;
+}
+.p2 {
+    background-color: #FFA84C;
+}
+.p3 {
+    background-color: #FFE55D;
+}
+.p4 {
+    background-color: lightgrey;
+}
+.p1,.p2,.p3,.p4 {
+    width: 2rem;
+    border-radius: 50%;
+}
+
+/* Task project colors */
+.berry_red {
+    background-color: #b5417b;
+  }
+  
+.light_blue {
+    background-color: #96c3eb;
+  }
+  
+  .red {
+    background-color: #db4035;
+  }
+  
+  .blue {
+    background-color: #4073ff;
+  }
+  
+  .orange {
+    background-color: #ff9933;
+  }
+  
+  .grape {
+    background-color: #884dff;
+  }
+  
+  .yellow {
+    background-color: #fad000;
+  }
+  
+  .violet {
+    background-color: #af38eb;
+  }
+  
+  .olive_green {
+    background-color: #afb83b;
+  }
+  
+  .lavender {
+    background-color: #eb96eb;
+  }
+  
+  .lime_green {
+    background-color: #7ecc49;
+  }
+  
+  .magenta {
+    background-color: #e05194;
+  }
+  
+  .green {
+    background-color: #299438;
+  }
+  
+  .salmon {
+    background-color: #ff8d85;
+  }
+  
+  .charcoal {
+    background-color: #808080;
+  }
+  
+  .grey {
+    background-color: #b8b8b8;
+  }
+  
+  .mint_green {
+    background-color: #6accbc;
+  }
+  
+  .teal {
+    background-color: #158fad;
+  }
+  
+  .sky_blue {
+    background-color: #14aaf5;
+  }
+  
+  .taupe {
+    background-color: #ccac93;
+  }
 /*
 dark orange: #e27d60
 light teal: #85cdcb

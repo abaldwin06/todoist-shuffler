@@ -41,6 +41,8 @@ def index():
     error = ""
     taskFilterText=""
     taskCount = ""
+    projectName = ""
+    projectColor="charcoal"
     if 'randomTask' in request.form:
 
         # Filter by Due Date if set
@@ -78,8 +80,23 @@ def index():
         # Show error page if API has an error
         except Exception as error:
             return render_template('error.html',error=error)
+        # If Random Task is generated, API call to get Project details
+        try:
+            project = api.get_project(project_id=randomTask.project_id)
+            projectName = project.name
+            projectColor = project.color
+        except Exception as error:
+            projectName="Unknown Project"
+            projectColor="charcoal"
+        # If Random Task is generated, API call to get Section details
+        if randomTask.section_id:
+            try:
+                section = api.get_section(section_id=randomTask.section_id)
+                projectName = projectName + " / " + section.name
+            except Exception as error:
+                pass
     # If Shuffler successful, show index page
-    return render_template('index.html',template_form=TodoistForm(),randomTask=randomTask,taskFilterText=taskFilterText,taskCount=taskCount)
+    return render_template('index.html',template_form=TodoistForm(),randomTask=randomTask,taskFilterText=taskFilterText,taskCount=taskCount,projectName=projectName,projectColor=projectColor)
 
 # ============================================================================
 # Function to create Todoist filter text for the selected list of projects or labels
@@ -110,7 +127,7 @@ def filter_tasks_by_list(prevFilterText, selectedList, listType):
     else:
         pass
 
-    # if there already is filter text, concatenaate this list filter with AND logic
+    # if there already is filter text, concatenate this list filter with AND logic
     if prevFilterText != "":
         newFilterText = prevFilterText + "&" + newFilterText
     # otherwise AND logic not needed

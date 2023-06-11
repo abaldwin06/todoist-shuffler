@@ -20,28 +20,54 @@
                     {{ template_form.dueDateFilter.label }}
                     {{ template_form.dueDateFilter() }}
                 </div>
-                <div>
-                    {{ template_form.projectFilter.label }}
-                    {{ template_form.projectFilter() }}
-                </div>
-                <div>
-                    {{ template_form.labelFilter.label }}
-                    {{ template_form.labelFilter() }}
+                <div class="selectlists">
+                    <div class="flexcolumn">
+                        {{ template_form.projectFilter.label }}
+                        {{ template_form.projectFilter() }}
+                    </div>
+                    <div class="flexcolumn">
+                        {{ template_form.labelFilter.label }}
+                        {{ template_form.labelFilter() }}
+                    </div>
                 </div>
                 {{ template_form.randomTask() }}
             </form>
+            
+            {% if taskCount %}
+            <ul id="tasklist">
+                <li class="task">
+                    <!--Task Checkbox-->
+                    <input type="checkbox" name="complete">
 
-            <ul id="todaylist">
-                <li class="task">{{ randomTask.content }}</li>
+                    <!--Task Name-->
+                    <p>{{ randomTask.content }}</p>
+
+                    <!--Task Project-->
+                    <div class="factoid {{ projectColor }}">{{ projectName }}</div>
+                    
+                    <!--Task Priority-->
+                    {% if randomTask.priority == 4 %}
+                        <div class="p1 factoid">P1</div>
+                    {% elif randomTask.priority == 3 %}
+                        <div class="p2 factoid">P2</div>
+                    {% elif randomTask.priority == 2 %}
+                        <div class="p3 factoid">P3</div>
+                    {% else %}
+                        <div class="p4 factoid">P4</div>
+                    {% endif %}
+
+                    <!--Task Labels-->
+<!--                     {% for label in randomTask.labels %}
+                        <div class="factoid"> {{ label }} </div>
+                    {% endfor %} -->
+
+                </li>
             </ul>
-
-            <section>
-                {% if taskCount %}
-                    <p> Randomly selected from <span>{{ taskCount }} tasks</span> using the filter:<br> <span>{{ taskFilterText }}</span></p>
-                {% endif %}
-            </section>
+            {% endif %}
         </main>
         <footer>
-
+            {% if taskCount %}
+                <p> Randomly selected from <span>{{ taskCount }} tasks</span> using the filter:<br> <span>{{ taskFilterText }}</span></p>
+            {% endif %}
         </footer>
     </body>
