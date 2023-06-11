@@ -8,7 +8,7 @@ from datetime import date, timedelta
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
 # TODO - Add OAuth login
-api = TodoistAPI("8f9a6d7e0bb97fc8c47d5ac82c7ab31dbf9fc145")
+api = TodoistAPI("{YOUR-API-KEY-GOES-HERE")
 
 class TodoistForm(FlaskForm):
     randomTask = SubmitField("Select a Random Task")
