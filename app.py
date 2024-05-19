@@ -7,6 +7,7 @@ from datetime import date, timedelta
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
+
 # TODO - Add OAuth login
 file=open(".apikey","r")
 key = file.read()
